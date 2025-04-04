@@ -3,6 +3,8 @@ name: Java 22 Maven TDD Workflow
 on:
   push:
     branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   build-and-test:
