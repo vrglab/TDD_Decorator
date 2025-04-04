@@ -2,7 +2,7 @@ name: Java 22 Maven TDD Workflow
 
 on:
   push:
-    branches: [master]
+    branches: ['*']
   pull_request:
     branches: [master]
 
