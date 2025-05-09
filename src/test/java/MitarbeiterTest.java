@@ -1,22 +1,17 @@
-import org.Vrglab.Decorator.BonusComponent;
 import org.Vrglab.Decorator.GroundBonus;
 import org.Vrglab.Mitarbeiter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-
-public class BonusCalculator {
+public class MitarbeiterTest {
 
     private Mitarbeiter mitarbeiter;
-    private BonusComponent bonusCalculator;
 
     private static String _TEST_NAME = "Mitarbeiter";
 
@@ -29,13 +24,30 @@ public class BonusCalculator {
         when(mitarbeiter.getFZG()).thenReturn(LocalDate.now());
         when(mitarbeiter.getName()).thenReturn(_TEST_NAME);
         when(mitarbeiter.getPerformance()).thenReturn(0.5d);
-
-        bonusCalculator = new GroundBonus(bonusCalculator);
     }
 
+    @Test
+    public void testAbgeschlosseneProjekte() {
+        assertThat(mitarbeiter.getAbgesProjekte()).isEqualTo(2);
+    }
 
     @Test
-    public void testCalculateGroundBonus() {
-        assertThat(bonusCalculator.calculate(mitarbeiter)).isEqualTo("");
+    public void testFehlTage() {
+        assertThat(mitarbeiter.getFehlTage()).isEqualTo(3);
+    }
+
+    @Test
+    public void testFZG() {
+        assertThat(mitarbeiter.getFZG()).isEqualTo(LocalDate.now());
+    }
+
+    @Test
+    public void testName() {
+        assertThat(mitarbeiter.getName()).isEqualTo(_TEST_NAME);
+    }
+
+    @Test
+    public void testPerformance() {
+        assertThat(mitarbeiter.getPerformance()).isEqualTo(0.5D);
     }
 }
