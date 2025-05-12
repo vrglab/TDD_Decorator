@@ -8,9 +8,6 @@ public abstract class BonusDecorator extends BonusComponent {
     public BonusDecorator(BonusComponent bonus) {
         this.decoratedBonus = bonus;
     }
-
-    @Override
-    public String calculate(Mitarbeiter m) {
-        return decoratedBonus.calculate(m);
-    }
+    public abstract double berechneBonus(Mitarbeiter mitarbeiter);
 }
+
