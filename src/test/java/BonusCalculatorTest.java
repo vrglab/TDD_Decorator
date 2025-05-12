@@ -1,19 +1,18 @@
 import org.Vrglab.Decorator.BonusComponent;
 import org.Vrglab.Decorator.GroundBonus;
+import org.Vrglab.Decorator.TeamleiterBonus;
 import org.Vrglab.Mitarbeiter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
-public class BonusCalculator {
+public class BonusCalculatorTest {
 
     private Mitarbeiter mitarbeiter;
     private BonusComponent bonusCalculator;
@@ -30,12 +29,23 @@ public class BonusCalculator {
         when(mitarbeiter.getName()).thenReturn(_TEST_NAME);
         when(mitarbeiter.getPerformance()).thenReturn(0.5d);
 
-        bonusCalculator = new GroundBonus(bonusCalculator);
+        bonusCalculator = new GroundBonus();
     }
 
 
     @Test
     public void testCalculateGroundBonus() {
-        assertThat(bonusCalculator.calculate(mitarbeiter)).isEqualTo("");
+        double bonus = bonusCalculator.berechneBonus(mitarbeiter);
+
+        assertThat(bonus).isEqualTo(1000.0);
+    }
+    @Test
+    public void testCalculateTeamLeiterBonus() {
+        when(mitarbeiter.isTeamLeader()).thenReturn(true);
+
+        bonusCalculator = new TeamleiterBonus(bonusCalculator);
+        double bonus = bonusCalculator.berechneBonus(mitarbeiter);
+
+        assertThat(bonus).isEqualTo(1500.0);
     }
 }
