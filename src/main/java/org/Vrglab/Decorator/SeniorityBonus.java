@@ -5,7 +5,6 @@ import org.Vrglab.Mitarbeiter;
 public class SeniorityBonus extends BonusDecorator {
     public SeniorityBonus(BonusComponent component) {
         super(component);
-
     }
 
     @Override
