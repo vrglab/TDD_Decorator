@@ -2,17 +2,15 @@ package org.Vrglab.Decorator;
 
 import org.Vrglab.Mitarbeiter;
 
-public class SeniorityBonus extends BonusDecorator {
-    public SeniorityBonus(BonusComponent component) {
+public class ProjectBonus extends BonusDecorator{
+    public  ProjectBonus(BonusComponent component) {
         super(component);
-
     }
 
     @Override
     public double berechneBonus(Mitarbeiter mitarbeiter) {
         double bonus = decoratedBonus.berechneBonus(mitarbeiter);
-        int years = java.time.Period.between(mitarbeiter.getFZG(), LocalDate.now()).getYears();
-        bonus += (years / 5) * 150.0;
+        bonus += mitarbeiter.getAbgesProjekte() * 50.0;
         return bonus;
     }
 }
