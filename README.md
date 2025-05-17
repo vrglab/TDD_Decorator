@@ -37,4 +37,4 @@ Die Berechnung nutzt das **Decorator Pattern**, um die Boni modular und dynamisc
   - JUnit 4  
   - AssertJ für Assertions  
   - Mockito für Mocks 
-- ![image](https://github.com/user-attachments/assets/c824d12d-f387-4963-99ce-2006d6740e4d)
+- ![Tdd Diagram drawio](https://github.com/user-attachments/assets/0d97a9f0-92c4-4ad4-89a2-d09e82c14dd5)
