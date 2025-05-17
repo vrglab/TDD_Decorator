@@ -21,18 +21,20 @@ Die Berechnung nutzt das **Decorator Pattern**, um die Boni modular und dynamisc
 ## Architektur & Design
 
 - **Decorator Pattern**  
-  - `BonusComponent` (abstrakte Basisklasse)  
-  - `BonusDecorator` (Basis-Klasse für alle konkreten Boni)  
+  - `Bonus` (Interface Basisklasse)  
+  - `BonusDecorator` (Basis-Klasse für alle konkreten Decoratoren)  
   - Konkrete Decorators:  
-    - `GroundBonus`  
+    - `BaseBonus`  
     - `PerformanceBonus`  
     - `SeniorityBonus`  
-    - `ProjectCompletionBonus`  
+    - `ProjectBonus`  
     - `TeamleiterBonus`  
-    - `AbsenceBonus`  
+    - `FehlzeitenBonus`  
 - **BonusCalculator** (Client)  
   - Stellt die Dekorator-Kette zusammen  
-  - Ruft `berechneBonus()` auf und wendet Unternehmensrestriktionen an  
+  - Ruft `berechneBonus()` auf und wendet Unternehmensrestriktionen an
+- **BonusBuilder**
+  - Bonus Factory
 - **TDD**  
   - JUnit 4  
   - AssertJ für Assertions  
