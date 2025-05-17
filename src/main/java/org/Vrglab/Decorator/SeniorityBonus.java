@@ -1,6 +1,7 @@
 package org.Vrglab.Decorator;
 
 import org.Vrglab.Mitarbeiter;
+import java.time.LocalDate;
 
 public class SeniorityBonus extends BonusDecorator {
     public SeniorityBonus(BonusComponent component) {
