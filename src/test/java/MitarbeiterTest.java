@@ -1,3 +1,4 @@
+import jdk.jshell.execution.Util;
 import org.Vrglab.Mitarbeiter;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,17 +13,9 @@ public class MitarbeiterTest {
 
     private Mitarbeiter mitarbeiter;
 
-    private static String _TEST_NAME = "Mitarbeiter";
-
     @Before
     public void Setup() {
-        mitarbeiter = mock(Mitarbeiter.class);
-
-        when(mitarbeiter.getAbgesProjekte()).thenReturn(2);
-        when(mitarbeiter.getFehlTage()).thenReturn(3);
-        when(mitarbeiter.getFZG()).thenReturn(LocalDate.now());
-        when(mitarbeiter.getName()).thenReturn(_TEST_NAME);
-        when(mitarbeiter.getPerformance()).thenReturn(0.5d);
+        mitarbeiter = Utils.MockedMitarbeiter();
     }
 
     @Test
@@ -37,16 +30,21 @@ public class MitarbeiterTest {
 
     @Test
     public void testFZG() {
-        assertThat(mitarbeiter.getFZG()).isEqualTo(LocalDate.now());
+        assertThat(mitarbeiter.getFZG()).isEqualTo(Utils.TEST_DATE);
     }
 
     @Test
     public void testName() {
-        assertThat(mitarbeiter.getName()).isEqualTo(_TEST_NAME);
+        assertThat(mitarbeiter.getName()).isEqualTo(Utils.TEST_NAME);
     }
 
     @Test
     public void testPerformance() {
         assertThat(mitarbeiter.getPerformance()).isEqualTo(0.5D);
+    }
+
+    @Test
+    public void testTeamLeader() {
+        assertThat(mitarbeiter.isTeamLeader()).isEqualTo(true);
     }
 }
