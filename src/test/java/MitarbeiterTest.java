@@ -1,4 +1,3 @@
-import org.Vrglab.Decorator.GroundBonus;
 import org.Vrglab.Mitarbeiter;
 import org.junit.Before;
 import org.junit.Test;

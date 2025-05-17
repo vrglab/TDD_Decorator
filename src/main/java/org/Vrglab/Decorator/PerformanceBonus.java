@@ -1,9 +1,10 @@
 package org.Vrglab.Decorator;
 
+import org.Vrglab.Bonus;
 import org.Vrglab.Mitarbeiter;
 
 public class PerformanceBonus extends BonusDecorator {
-    public PerformanceBonus(BonusComponent component) {
+    public PerformanceBonus(Bonus component) {
         super(component);
     }
 
