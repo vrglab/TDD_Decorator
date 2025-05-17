@@ -1,9 +1,10 @@
 package org.Vrglab.Decorator;
 
+import org.Vrglab.Bonus;
 import org.Vrglab.Mitarbeiter;
 
 public class FehlzeitenBonus  extends BonusDecorator {
-    public  FehlzeitenBonus(BonusComponent component) {
+    public  FehlzeitenBonus(Bonus component) {
         super(component);
     }
 
