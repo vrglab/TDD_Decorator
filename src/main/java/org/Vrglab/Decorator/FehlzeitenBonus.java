@@ -13,7 +13,6 @@ public class FehlzeitenBonus  extends BonusDecorator {
         double bonus = decoratedBonus.berechneBonus(mitarbeiter);
         int fehltage = mitarbeiter.getFehlTage();
 
-
         if (fehltage == 0) {
             bonus += 200.0;
         } else if (fehltage == 1) {

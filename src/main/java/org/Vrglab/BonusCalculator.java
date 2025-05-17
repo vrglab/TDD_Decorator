@@ -43,18 +43,6 @@ public class BonusCalculator {
             return this;
         }
 
-        public <T extends Bonus> BonusBuilder AddBonus(Class<T> _class, Object... parameters)  {
-            try {
-                Object[] fullParams = new Object[parameters.length + 1];
-                fullParams[0] = bonus;
-                System.arraycopy(parameters, 0, fullParams, 1, parameters.length);
-                this.bonus = (Bonus)_class.getConstructors()[0].newInstance(fullParams);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-            return this;
-        }
-
         public Bonus Build() {
             return bonus;
         }
